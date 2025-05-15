@@ -34,6 +34,48 @@ async function resizeContent() {
     }
   }
   
+
+// 🔶 Add Quarter Labels Based on Week Dates
+function labelQuarters() {
+  const dateElements = document.querySelectorAll('.roadmap-column-title');
+  const quarters = {
+    Q1: [0, 1, 2],   // Jan, Feb, Mar
+    Q2: [3, 4, 5],   // Apr, May, Jun
+    Q3: [6, 7, 8],   // Jul, Aug, Sep
+    Q4: [9, 10, 11], // Oct, Nov, Dec
+  };
+
+  const monthMap = {
+    'Jan': 0, 'Feb': 1, 'Mar': 2, 'Apr': 3,
+    'May': 4, 'Jun': 5, 'Jul': 6, 'Aug': 7,
+    'Sep': 8, 'Oct': 9, 'Nov': 10, 'Dec': 11,
+  };
+
+  const getQuarter = (month) => {
+    for (const [q, months] of Object.entries(quarters)) {
+      if (months.includes(month)) return q;
+    }
+    return '';
+  };
+
+  dateElements.forEach(el => {
+    const text = el.textContent.trim();
+    const match = text.match(/^(\d{1,2})-(\w{3})$/);
+    if (match) {
+      const day = parseInt(match[1], 10);
+      const monthStr = match[2];
+      const month = monthMap[monthStr];
+      if (month !== undefined) {
+        const quarter = getQuarter(month);
+        // Only add if not already labeled
+        if (!el.textContent.includes(`(${quarter})`)) {
+          el.textContent = `${text} (${quarter})`;
+        }
+      }
+    }
+  });
+}
+
   // Run immediately on page load
   // resizeElement();
 
@@ -41,6 +83,7 @@ async function resizeContent() {
   const observer = new MutationObserver(() => {
     resizeElement();
     resizeContent();
+    labelQuarters();
   });
 
   observer.observe(document.body, { childList: true, subtree: true });  
