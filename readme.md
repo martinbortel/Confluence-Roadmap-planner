@@ -2,7 +2,11 @@
 A google chrome extension to resize Confluence's Roadmap planner by Atlassian modal window, so that it is more usable.
 
 ## ☕ Support
-If you like what I do, consider to [ ![BuyMeACoffee](https://raw.githubusercontent.com/pachadotdev/buymeacoffee-badges/main/bmc-white.svg)](https://www.buymeacoffee.com/martinbortel)
+If you like what I do, consider buying me a coffee:
+
+[![BuyMeACoffee](https://raw.githubusercontent.com/pachadotdev/buymeacoffee-badges/main/bmc-white.svg)](https://www.buymeacoffee.com/martinbortel)
+
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-FF5E5B?logo=ko-fi&logoColor=white)](https://www.ko-fi.com/martinbortel)
 
 
 ## **Caution**
