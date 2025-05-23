@@ -4,13 +4,13 @@
     "version": "1.4.0",
     "description": "Resizes the roadmap dialog on Confluence pages relative to width (99%) and to height (99%, this is experimental).",
     "permissions": ["scripting"],
-    "host_permissions": ["https://*.atlassian.net/wiki/*"],
+    "host_permissions": ["https://at.mavenir.com/wiki/*"],
     "background": {
       "service_worker": "background.js"
     },
     "content_scripts": [
       {
-        "matches": ["https://*.atlassian.net/wiki/*"],
+        "matches": ["https://at.mavenir.com/wiki/*"],
         "js": ["content.js"],
         "run_at": "document_idle"
       }
